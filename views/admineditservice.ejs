@@ -1,0 +1,84 @@
+<%- include('../partials/header') -%>
+<% try { %>
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>EDIT </span>SERVICE</h2>
+            
+          </div>
+
+          <form action="/admineditthisservice/<%= result[0].Id %>" enctype="multipart/form-data" method="post">
+          
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+              <label>TITLE</label>
+              <input name="title" type="text" class="form-control" value="<%= result[0].Title %>" >
+                 
+              <label>ICON</label>
+              <input name="icon" type="text" class="form-control" value="<%= result[0].Icon %>">
+              
+              <label>IMAGE</label>
+              <input name="image" type="text" class="form-control" value="<%= result[0].Image %>">
+             
+
+              <label>IMAGE TITLE</label>
+              <input name="imagetitle" type="text" class="form-control" value="<%= result[0].ImageTitle %>">
+
+              <label>SMALL TITLE</label>
+              <input name="smallbit" type="text" class="form-control" value="<%= result[0].SmallBit %>">
+                     
+              <label>ON HOME</label>
+              <select name="onhome" class="form-control">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+             
+              <label>ON HOME SECTION</label>
+              <select name="section" class="form-control">
+                <option value="Solution">The Solution</option>
+                <option value="Give">What We Give</option>
+                <option value="Do">What We Do</option>
+              </select>           
+            
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+            <label>Fade Effect</label>
+              <select name="fade" class="form-control">
+                <option value="fadeInUp">Up</option>
+                <option value="fadeInLeft">Left</option>
+                <option value="fadeInRight">Left</option>
+                
+              </select>
+               
+              <% var desx = result[0].Description 
+              var desfixed = desx.replaceAll("<br>" , "\n");
+              %>
+            <label>DESCRIPTION</label>
+            <textarea name="description" rows="18" class="form-control" id="message"><%- desfixed %></textarea>
+               
+                   
+            <input type="submit" class="form-control">
+          
+        </div>
+
+        </form>
+
+       
+
+        </div>
+    </div>
+</section>
+
+
+<% } catch (error) { %>
+  <p>Something Went Wrong</p>
+<% } %>
+
+    
+
+
+<%- include('../partials/footer') -%>

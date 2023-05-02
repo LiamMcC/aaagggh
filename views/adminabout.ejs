@@ -1,0 +1,66 @@
+<%- include('../partials/header') -%>
+
+
+
+
+<div class="container" >
+
+
+	<div class="row">
+
+		<div class="col-md-12">
+			<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">ALL <span>ABOUT</span></h2>
+		</div>
+<div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
+		
+
+
+
+
+
+		<table class="cart-table">
+			<thead>
+				<tr>
+					<th>Edit</th>
+					<th>Title</th>
+					<th>Icon</th>
+					<th>SmallBit</th>
+					<th>Location</th>
+					
+					
+				</tr>
+			</thead>
+			<tbody>
+				<% try { %>
+										
+				
+				
+                <% result.forEach(function(product) { %>
+				<tr>
+					<td><a href="/admineditabout/<%= product.Id %>">Edit</a></td>
+					<td><%= product.Title %></td>
+					<td><%= product.Icon %></td>
+					<td><%= product.SmallBit %></td>
+					<td><%= product.siteLocation %></td>
+
+
+				</tr>
+				<% }); %>
+
+				<% } catch (err) { %>
+					<p>It looks as if there is an error with this section. We may not be aware of this so please let us know <a href="contact">Contact Us</a> Thank you!</p>
+				  <% } %>
+			</tbody>
+		</table>
+		
+ 
+	
+</div>
+</body>
+</html>
+
+
+
+
+
+<%- include('../partials/footer') -%>

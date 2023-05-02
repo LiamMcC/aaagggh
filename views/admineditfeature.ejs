@@ -1,0 +1,92 @@
+<%- include('../partials/header') -%>
+
+
+<%
+  var a, b, c, d, e, f;
+  try {
+    a = result[0][0].Title;
+    b = result[0][0].Icon;
+    c = result[0][0].Image;
+    d = result[0][0].ImageTitle;
+    e = result[0][0].SmallBit;
+    f = result[0][0].Description;
+  } catch (e) {
+    a = b = c = d = e = f =  "Error (Check all Data)";
+  }
+%>
+
+<section id="contact">
+    <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>WELCOME </span>BACK</h2>
+            
+          </div>
+
+          <form action="/admineditthisfeature/<%= result[0][0].Id %>" enctype="multipart/form-data" method="post">
+          
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+              <label>TITLE</label>
+              <input name="title" type="text" class="form-control" value="<%= a %>" >
+                 
+              <label>ICON</label>
+              <input name="icon" type="text" class="form-control" value="<%= b %>">
+              
+              <label>IMAGE</label>
+              <input name="image" type="text" class="form-control" value="<%= c %>">
+             
+
+              <label>IMAGE TITLE</label>
+              <input name="imagetitle" type="text" class="form-control" value="<%= d %>">
+
+              <label>SMALL TITLE</label>
+              <input name="smallbit" type="text" class="form-control" value="<%= e %>">
+                     
+             
+              
+                
+            
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+            <label>Package (Currently : <%= result[1][1].Title %>)</label>
+            <select name="package" class="form-control">
+              <% result[1].forEach(function(product) { %>
+              <option value="<%= product.Id %>"><%= product.Title %></option>
+              
+              <% }); %>
+            </select>
+               
+              <% var desx = f 
+              var desfixed = desx.replaceAll("<br>" , "\n");
+              %>
+            <label>DESCRIPTION</label>
+            <textarea name="description" rows="18" class="form-control" id="message"><%- desfixed %></textarea>
+               
+                   
+            <input type="submit" class="form-control">
+          
+        </div>
+
+        </form>
+
+       
+
+        </div>
+
+        
+       
+          
+    </div>
+</section>
+
+
+
+    
+
+
+<%- include('../partials/footer') -%>

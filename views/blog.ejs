@@ -1,0 +1,62 @@
+<%- include('../partials/header') -%>
+
+
+    	
+  
+
+    	<!-- start service -->
+    	<section id="service">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col-md-12">
+    					<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">AAAGGGH <span>BLOGS</span></h2>
+    				</div>
+					<% try { %>
+			
+					<% result.forEach(function(product) { %>
+						
+    				<div class="col-md-4 wow fadeIn" data-wow-offset="50" data-wow-delay="0.6s" style="min-height: 490px;">
+    					<i class="<%= product.Icon %>"></i>
+                        <img src="/<%= product.Image %>" class="img-responsive" alt="<%= product.ImageTitle %>">
+    					<h4><%= product.Title %></h4>
+    					<p><%= product.author %>, <%= product.dateWritten %></p>
+    					<p>
+							<%- product.Description.substring(0, 300) %> ...
+							
+						</p>
+
+                        <% var namex = product.Title 
+                var namexfixed = namex.replace(/ /g , "-");
+                %>
+						<h3><a href="/blog/<%= namexfixed %>/<%= product.Id %>" style="text-decoration: none;">Read More</a></h3>
+                        
+						
+						
+					
+					
+
+
+
+						</div>
+											<% }); %>
+    			
+										
+											<% } catch (err) { %>
+											  <p>It looks as if there is an error with this section. We may not be aware of this so please let us know <a href="contact">Contact Us</a> Thank you!</p>
+											<% } %>
+    			</div>
+    		</div>
+    	</section>
+    	<!-- end servie -->
+
+    	
+    
+
+
+
+
+      
+
+      <%- include('../partials/contact') -%>
+      <%- include('../partials/footer') -%>
+      <%- include('../partials/cookie') -%>

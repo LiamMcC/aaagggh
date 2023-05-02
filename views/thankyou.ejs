@@ -1,0 +1,57 @@
+<%- include('../partials/header') -%>
+
+
+
+ 
+
+    	<!-- start about -->
+		<section id="about">
+			<div class="container">
+				<div class="row">
+
+					<% try { %>
+
+					<div class="col-md-12">
+    					<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span><%= result[0].Title %>...</span></h2>
+    				</div>
+               
+					<div class="col-md-12 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.6s">
+						<div class="media">
+							<div class="media-heading-wrapper">
+								<div class="media-object pull-left">
+									<i class="fa fa-server"></i>
+								</div>
+								<h3 class="media-heading"><%= result[0].SmallBit %>...</h3>
+							</div>
+							<div class="media-body">
+								
+                  <p>
+                  <%- result[0].Description %>
+				</p>
+
+                </div>
+						</div>
+					</div>
+						
+					
+											
+										
+											<% } catch (err) { %>
+											  <p>It looks as if there is an error with this section. We may not be aware of this so please let us know <a href="contact">Contact Us</a> Thank you!</p>
+											<% } %>
+
+				</div>
+			</div>
+		</section>
+		<!-- end about -->
+
+ 
+
+   
+
+    	
+
+
+      <%- include('../partials/contact') -%>
+      <%- include('../partials/footer') -%>
+	  <%- include('../partials/cookie') -%>

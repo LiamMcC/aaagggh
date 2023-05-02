@@ -1,0 +1,107 @@
+<%- include('../partials/header') -%>
+
+
+
+
+<div class="container" >
+
+    <% try { %>
+            
+   
+	<div class="row">
+
+		<div class="col-md-12">
+			<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">ALL <span>ABOUT</span></h2>
+		</div>
+            <div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
+		
+<p>Click on any of the images to see the image name. Once you click on it it will be copied to the clipboard and you can paste it to where you want it.</p>
+                
+
+
+<div class="gallery">
+        <% for (var i = 0; i < files.length; i++) { %>
+
+    <div class="image">
+    
+        <% var xxx =  files[i] %>
+        <img src="../../<%= xxx %>" class="img-fluid" id="myImg" onclick="alertImageName('<%= files[i] %>')" alt="<%= files[i].ImageTitle %>" >
+               
+                     <p id="i<%= [i] %>">Delete</p>
+             
+                <p id="p<%= [i] %>" style="display:none; position: fixed;top: 100px; left: 20%; width:60%; background-color: rgba(2, 2, 2, .6); padding:100px; border-radius: 10px;">
+                    Are You sure?
+                    <br><br>
+                    <button id="no<%= [i] %>" style="background-color: rgb(216, 22, 22);" class="btn custom-btn custom-btn-bg custom-btn-link">No Cancel</button>
+                    <br><br>
+                    <a href="/deleteimage/<%= files[i] %>" style="background-color: green;" class="btn custom-btn custom-btn-bg custom-btn-link">Yes Deletd</a>
+                </p>
+
+               <script>
+                $(document).ready(function(){
+                    $("#i<%= [i] %>").click(function(){
+                    $("#p<%= [i] %>").slideToggle(2000)
+                    
+                    });
+                    
+                    $("#no<%= [i] %>").click(function(){
+                    $("#p<%= [i] %>").slideUp(2000)
+                    
+                    });
+                    
+                    });
+                    
+                    
+                    </script>
+
+    </div>
+        <% } %>
+</div>
+
+<script>
+
+function alertImageName(image) {
+
+   
+
+// Create a temporary input element to hold the text
+var tempInput = document.createElement("input");
+tempInput.value = image;
+document.body.appendChild(tempInput);
+
+// Select the text in the input element
+tempInput.select();
+
+// Copy the selected text to the clipboard
+document.execCommand("copy");
+
+// Remove the temporary input element
+document.body.removeChild(tempInput);
+
+
+
+  alert(image);
+}
+
+
+
+  
+    
+    </script>
+	
+</div>
+</div>
+<% } catch (err) { %>
+    <p>It looks as if there is an error with this section. We may not be aware of this so please let us know <a href="contact">Contact Us</a> Thank you!</p>
+  <% } %>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+<%- include('../partials/footer') -%>

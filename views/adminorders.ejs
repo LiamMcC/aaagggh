@@ -1,0 +1,105 @@
+<%- include('../partials/header') -%>
+
+
+
+
+<div class="container" style="margin: bottom 120px;">
+	<div class="row">
+
+				<div class="col-md-12">
+					<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">ALL <span>ORDERS</span></h2>
+				</div>
+		
+			<div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
+
+					<table class="cart-table">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>User</th>
+									<th>Status</th>
+									<th>Total Cost</th>
+					
+									<th>Package</th>
+									<th>Choice</th>
+									<th>Update</th>
+								</tr>
+							</thead>
+			<tbody>
+
+                <% data.forEach(function(product) { %>
+				<tr>
+					<td><a href="/order/<%= product.Id %>"><%= product.Id %></a></td>
+					<td><%= product.User %></td>
+					<td><%= product.Status %></td>
+					<td>€<%= product.totalCost %></td>
+					
+					<form method="post" action="/adminOrdersUpdate/<%= product.Id %>">
+							<td>
+								
+									
+										<select name="chosenP" class="form-control">
+										<option value="none">None</option>
+										<option value="p1">Package 1</option>
+										<option value="p2">Package 2</option>
+										<option value="p3">Package 3</option>
+										<option value="p4">Package 4</option>
+										<option value="p5">Package 5</option>
+										<option value="sup">Support</option>
+										</select>
+								
+							</td>
+
+							<td>
+								
+								<input type="hidden" name="username" value="<%= product.User %>"/>
+								<input type="hidden" name="uemail" value="<%= product.userMail %>"/>
+								<select name="ostatus" class="form-control">
+									<option value="Delivered">Delivered</option>
+									<option value="Refunded">Refunded</option>
+									<option value="Paid">Paid</option>
+								</select>
+								
+							</td>
+
+					
+							<td>
+							
+								<button class="form-control">Go! <%= product.Id %></button>
+								
+							</td>
+					</form>
+
+
+				</tr>
+				<% }); %>
+			</tbody>
+				</table>
+		
+
+	
+			
+					<div>
+
+						<ul class="pagination">
+							<% var numPages = Math.ceil(totalRows / numRowsPerPage); %>
+							<% for (var i = 1; i <= numPages; i++) { %>
+							<% var offset = (i - 1) * numRowsPerPage; %>
+							<li class="page-item <% if (currentPage === i) { %>active<% } %>">
+								<a class="page-link" href="/adminorders?offset=<%= offset %>"><%= i %></a>
+							</li>
+							<% } %>
+						</ul>
+					</div>
+		</div>
+	</div>
+
+	
+</div>
+
+
+
+
+
+<%- include('../partials/contact') -%>
+<%- include('../partials/footer') -%>

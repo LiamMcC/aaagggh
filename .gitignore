@@ -1,0 +1,6 @@
+# Ignore .db files
+db.js
+
+# Ignore .env files
+.env
+

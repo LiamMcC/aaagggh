@@ -1,0 +1,83 @@
+<%- include('../partials/header') -%>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>ADD AN </span>EXAMPLE</h2>
+            
+          </div>
+
+          <form action="/adminaddexample" enctype="multipart/form-data" method="post">
+          
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+              <label>TITLE</label>
+              <input name="title" type="text" class="form-control" required>
+                 
+              <label>ICON</label>
+              <input name="icon" type="text" class="form-control" required>
+              
+              <label>IMAGE A TITLE</label>
+              <input name="imagetitle" type="text" class="form-control" required>
+
+              <label>IMAGES (3)</label>
+              <input type="file" name="images" multiple required>
+
+              <label>IMAGE B TITLE</label>
+              <input name="imagetitleb" type="text" class="form-control" required>
+
+              <label>IMAGE C TITLE</label>
+              <input name="imagetitlec" type="text" class="form-control" required>
+
+              <label>SMALL TITLE</label>
+              <input name="smallbit" type="text" class="form-control" required>
+
+              <label>External Link</label>
+              <input name="externalexample" type="text" class="form-control" required>
+                     
+
+              <label>ON HOME</label>
+              <select name="onhome" class="form-control" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+             
+             
+             
+                         
+            
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+            
+               
+            <label>CONTENT A</label>
+            <textarea name="description" rows="18" class="form-control" id="message" required></textarea>
+
+            <label>CONTENT B</label>
+            <textarea name="descriptionb" rows="18" class="form-control" id="messageb" required></textarea>
+
+            <label>CONTENT C</label>
+            <textarea name="descriptionc" rows="18" class="form-control" id="messagec" required></textarea>
+
+            <input type="submit" class="form-control">
+          
+        </div>
+
+        </form>
+
+       
+
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+
+<%- include('../partials/footer') -%>

@@ -1,0 +1,259 @@
+<%- include('../partials/header') -%>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>WELCOME BACK</span> <%= user.userName.toUpperCase() %></h2>
+            <h4>This is your profile page where you can see the infrmation you have entered and any orders you have placed. Yoou can also edit details here such as changing your password and email address.</h4>
+          
+
+          </div>
+
+
+          <% if (message) { %>
+            <div class="col-md-12">
+            <h2><%= message %></h2>
+          </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+      <div class="row">
+
+        <div class="col-md-12">
+          <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span><%= user.userName.toUpperCase() %>'S</span> DETAILS</h2>
+          <h4>Email: <%= user.uemail %></h4>
+          <button class="form-control submit-btn" id="eprofile">Edit Email</button>
+          <button class="form-control submit-btn" id="epass">Edit Password</button>
+          
+        </div>
+      </div>
+  </div>
+</section>
+
+<div id="myModal" class="modal2" >
+
+  <!-- Modal content -->
+  <div class="modal-content2" >
+    
+        <h4>Fill In a New Password Here</h4>
+        <form action="/changeemail" method="post">
+        <div class="col-md-12" style="margin-bottom:40px;">
+            <input name="newemail" type="email" class="form-control" placeholder="New Email">
+                  <br><br>
+             <button class="form-control" >Go</button>
+                <br><br>
+             <p class="form-control" id="noCancel">Cancel</p>
+      </div>
+        </form>
+
+  </div>
+</div>
+
+
+<div id="myModal2" class="modal2">
+
+  <!-- Modal content -->
+  <div class="modal-content2" >
+    
+        <p>Fill In a New Password Here. <br>Note: If This works you will be logged out for security reasons to confirm your new password on log in. 
+          <br>If your old password does not match the one we have previously given you will be redirected to the profile page </p>
+
+        <div class="col-md-12" style="margin-bottom:40px;">
+
+          <form action="/changepassword" method="post">
+            
+            <input name="oldpassword" type="password" class="form-control" placeholder="Current Password">
+
+            <br><br>
+            <input type="password" class="form-control" id="password1" placeholder="New Password">
+
+            <br><br>
+           
+            
+            <input name="newpassword" type="password" class="form-control" id="password2" placeholder="Confirm Password">
+            <p id="password-error" style="display: none; color: red;">Passwords do not match</p>
+          
+          <br><br>
+<button class="form-control" id="password-butt" style="display:none">Change Password</button>
+      
+        <br><br>
+
+        <p class="form-control" id="noCancel2" >Cancel</p>
+
+      </form>
+      </div>
+
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#eprofile").click(function(){
+    $("#myModal").slideDown(2000);
+    })
+
+    $("#epass").click(function(){
+    $("#myModal2").slideDown(2000);
+    })
+
+
+    $("#noCancel").click(function(){
+    $("#myModal").slideUp(2000);
+    })
+
+    $("#noCancel2").click(function(){
+    $("#myModal2").slideUp(2000);
+    })
+    
+  })
+
+
+  $(document).ready(function() {
+  // Get the input fields for the passwords
+  var password1 = $("#password1");
+  var password2 = $("#password2");
+
+  // Add an input event listener to the second password field
+  password2.on("input", function() {
+    // Check if the two password fields match
+    if (password1.val() != password2.val()) {
+      // If they don't match, show an error message
+      $("#password-error").text("Passwords do not match").show();
+    } else {
+      // If they match, hide the error message
+      $("#password-butt").show();
+      $("#password-error").hide();
+    }
+  });
+});
+
+
+    </script>
+
+
+<section>
+  <div class="container" >
+  
+  
+    <div class="row">
+  
+      <div class="col-md-12">
+        <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">ALL <%= user.userName.toUpperCase() %>'S <span>FILES</span></h2>
+      </div>
+  <div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
+      
+  
+  
+  
+  
+  
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>User</th>
+            <th>Package</th>
+            <th>Download</th>
+ 
+            
+          </tr>
+        </thead>
+        <tbody>
+  
+                  <% result[2].forEach(function(product) { %>
+          <tr>
+            <td><%= product.Id %></td>
+            <td><%= product.package %></td>
+            <form action="/download/<%= product.dLink %>/<%= product.Id %>/<%= product.userName %>" method="post">
+              <input type="hidden" name="pname" value="<%= product.package %>"/>
+            <td><input name="uCode" type="text" class="form-control" placeholder="Emailed Code" ></td>
+            <td> <input type="submit" class="form-control"></td>
+            </form>
+          
+            
+  
+  
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      
+  
+    
+  </div>
+    </div>
+  
+  
+  </div>
+  </section>
+
+
+
+
+
+
+<section>
+<div class="container" >
+
+
+	<div class="row">
+
+		<div class="col-md-12">
+			<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">ALL <%= user.userName.toUpperCase() %>'S <span>ORDERS</span></h2>
+		</div>
+<div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
+		
+
+
+
+
+
+		<table class="cart-table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>User</th>
+					<th>Status</th>
+					<th>Total Cost</th>
+					<th>Order Date</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+
+                <% result[1].forEach(function(product) { %>
+				<tr>
+					<td><a href="/order/<%= product.Id %>"><%= product.Id %></a></td>
+					<td><%= product.User %></td>
+					<td><%= product.Status %></td>
+					<td>€<%= product.totalCost %></td>
+					<td><%= product.orderMade %></td>
+			  
+					
+
+
+				</tr>
+				<% }); %>
+			</tbody>
+		</table>
+		
+
+	
+</div>
+	</div>
+
+
+</div>
+</section>
+
+
+<%- include('../partials/footer') -%>
+<%- include('../partials/cookie') -%>
+
+

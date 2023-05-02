@@ -1,0 +1,93 @@
+<%- include('../partials/header') -%>
+<%
+  var a1, a, b, c, d, h, f, g;
+  try {
+    a1 = result[0].Id;
+    a = result[0].Title;
+    b = result[0].Icon;
+    c = result[0].Image;
+    d = result[0].ImageTitle;
+    h = result[0].SmallBit;
+    f = result[0].price;
+    g = result[0].Description;
+  } catch (e) {
+    a = b = c = d = h = g =  "Error (Check all Data)";
+    f = 999;
+    a1 = 1
+  }
+%>
+  <!-- Your EJS code here -->
+
+
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>WELCOME </span>BACK</h2>
+            
+          </div>
+         
+          <form action="/admineditthispackage/<%= a1 %>" enctype="multipart/form-data" method="post">
+          
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+              <label>TITLE</label>
+              <input name="title" type="text" class="form-control" value="<%= a %>">
+                 
+              <label>ICON</label>
+              <input name="icon" type="text" class="form-control" value="<%= b %>">
+              
+              <label>IMAGE</label>
+              <input name="image" type="text" class="form-control" value="<%= c %>">
+
+              <label>IMAGE TITLE</label>
+              <input name="imagetitle" type="text" class="form-control" value="<%= d %>">
+
+              <label>SMALL TITLE</label>
+              <input name="smallbit" type="text" class="form-control" value="<%= h %>">
+                     
+              <label>ON HOME</label>
+              <select name="onhome" class="form-control">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+                
+              </select>
+             
+
+
+
+                         
+            
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+            <label>PRICE</label>
+            <input name="price" type="text" class="form-control" value="<%= f %>">
+            <% var desx = g 
+            var desfixed = desx.replaceAll("<br>" , "\n");
+            %>
+            <label>DESCRIPTION</label>
+            <textarea name="description" rows="18" class="form-control" ><%= desfixed %></textarea>
+               
+                   
+            <input type="submit" class="form-control">
+          
+        </div>
+
+        </form>
+       
+       
+
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+
+<%- include('../partials/footer') -%>

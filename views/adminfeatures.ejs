@@ -1,0 +1,105 @@
+<%- include('../partials/header') -%>
+
+
+
+
+<div class="container" >
+
+
+	<div class="row">
+
+		<div class="col-md-12">
+			<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">ALL <span>FEATURES</span></h2>
+		</div>
+<div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
+		
+
+
+
+
+
+		<table class="cart-table">
+			<thead>
+				<tr>
+					<th>Edit</th>
+					<th>Title</th>
+					<th>Icon</th>
+					<th>SmallBit</th>
+					<th>Solution</th>
+					<th>Delete</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+
+                <% result.forEach(function(product) { %>
+				<tr>
+					<td><a href="/admineditfeature/<%= product.Id %>">Edit</a></td>
+					<td><%= product.Title %></td>
+					<td><%= product.Icon %></td>
+					<td><%= product.SmallBit %></td>
+					<td><%= product.solution %></td>
+					<td><p id="myBtn<%= product.Id %>">Delete</p></td>
+					
+					
+					<div id="myModal<%= product.Id %>" class="modal2">
+						<div class="modal-content2" >
+						<!-- Modal content -->
+						<div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s" style="text-align:center;">
+						  
+						  		<h4>Are You Sure You Want To Do This!</h4>
+
+								  <div class="col-md-12" style="margin-bottom:40px;">
+									<button class="form-control" id="noCancel<%= product.Id %>" >No Cancel</button>
+								</div>
+									
+											
+							
+								  <div class="col-md-12">
+									<a href="/admindeletefeature/<%= product.Id %>" button class="form-control">Yes Do It!</a>
+								</div>		
+							
+								
+							
+						</div>
+						</div>
+					</div>
+					
+						<script>
+							$(document).ready(function(){
+							  $("#myBtn<%= product.Id %>").click(function(){
+								$("#myModal<%= product.Id %>").slideDown(2000);
+								
+								
+							  })
+			  
+			  
+							  $("#noCancel<%= product.Id %>").click(function(){
+								$("#myModal<%= product.Id %>").slideUp(2000);
+							   
+								
+							  })
+							  
+							})
+							  </script>
+
+				</tr>
+				<% }); %>
+			</tbody>
+		</table>
+		
+        <div class="col-md-3 col-sm-4 col-xs-6" style="margin-top:20px; float: right;">
+            <a href="/adminaddfeature" style="text-decoration:none;"><button class="form-control">Add A Feature</button></a>
+            
+        
+        </div>
+	
+</div>
+</body>
+</html>
+
+
+
+
+
+<%- include('../partials/footer') -%>

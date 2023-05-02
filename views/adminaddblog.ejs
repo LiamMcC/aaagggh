@@ -1,0 +1,63 @@
+<%- include('../partials/header') -%>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>ADD A </span>BLOG POST</h2>
+            
+          </div>
+
+          <form action="/adminaddblog" enctype="multipart/form-data" method="post">
+          
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+              <label>TITLE</label>
+              <input name="title" type="text" class="form-control" >
+                 
+              <label>ICON</label>
+              <input name="icon" type="text" class="form-control" >
+              
+              <label>IMAGE</label>
+              <input type="file" class="form-control" name="image" accept='image/*' style="height:auto">
+
+              <label>IMAGE TITLE</label>
+              <input name="imagetitle" type="text" class="form-control">
+
+              <label>SMALL TITLE</label>
+              <input name="smallbit" type="text" class="form-control" >
+                     
+              <label>AUTHOR</label>
+              <input name="author" type="text" class="form-control" id="name">
+             
+                         
+            
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+            
+               
+            <label>CONTENT</label>
+            <textarea name="description" rows="18" class="form-control" id="message"></textarea>
+               
+                   
+            <input type="submit" class="form-control">
+          
+        </div>
+
+        </form>
+
+       
+
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+
+<%- include('../partials/footer') -%>

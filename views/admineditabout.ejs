@@ -1,0 +1,154 @@
+<%- include('../partials/header') -%>
+
+<section id="contact">
+    <div class="container">
+  <% try { %>    
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>WELCOME </span>BACK</h2>
+            
+          </div>
+
+          <form action="/admineditthisabout/<%= result[0].Id %>" enctype="multipart/form-data" method="post">
+          
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+              <label>TITLE</label>
+              <input name="title" type="text" class="form-control" value="<%= result[0].Title %>" >
+                 
+              <label>ICON</label>
+              <input name="icon" type="text" class="form-control" value="<%= result[0].Icon %>">
+              
+              <label>IMAGE</label>
+              <input name="image" type="text" class="form-control" value="<%= result[0].Image %>">
+             
+
+              <label>IMAGE TITLE</label>
+              <input name="imagetitle" type="text" class="form-control" value="<%= result[0].ImageTitle %>">
+
+              <label>SMALL TITLE</label>
+              <input name="smallbit" type="text" class="form-control" value="<%= result[0].SmallBit %>">
+                     
+              <label>SITE LOCATION</label>
+              <input name="sitelocation" type="text" class="form-control" value="<%= result[0].siteLocation %>">
+             
+        
+            
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+
+               
+              <% var desx = result[0].Description 
+              var desfixed = desx.replaceAll("<br>" , "\n");
+              %>
+            <label>DESCRIPTION</label>
+            <textarea name="description" rows="18" class="form-control" id="message"><%- desfixed %></textarea>
+               
+                   
+            <input type="submit" class="form-control">
+          
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+        <p>
+          <p>Highligh text above and press any of these to format it</p>
+          <span id="wrapButton">&nbsp;&nbsp;Heading&nbsp;&nbsp;</span>
+          <span id="wrapButton2">&nbsp;&nbsp;Italic&nbsp;&nbsp;</span>
+          <span id="wrapButton3">&nbsp;&nbsp;Bold&nbsp;&nbsp;</span>
+          <span id="wrapButton4">&nbsp;&nbsp;Underline&nbsp;&nbsp;</span>
+          <span id="wrapButton5">&nbsp;&nbsp;Highlight&nbsp;&nbsp;</span>
+          
+          
+        </p>
+        </div>
+        </form>
+        
+        </div>
+        
+        <% } catch (err) { %>
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>OH </span>NO</h2>
+            <p>It looks as if there is an error with this section. We may not be aware of this so please let us know <a href="contact">Contact Us</a> Thank you!</p>
+      
+          </div>
+            <% } %>
+        
+    </div>
+</section>
+
+
+<script>
+
+  $(document).ready(function() {
+    $('#wrapButton').click(function() {
+      var input = $('#message');
+      var start = input[0].selectionStart;
+      var end = input[0].selectionEnd;
+      if (start !== end) { // only wrap if text is selected
+        var selectedText = input.val().substring(start, end);
+        var newText = '<h4>' + selectedText + '</h4>';
+        input.val(input.val().substring(0, start) + newText + input.val().substring(end));
+      }
+    });
+
+    $('#wrapButton2').click(function() {
+      var input = $('#message');
+      var start = input[0].selectionStart;
+      var end = input[0].selectionEnd;
+      if (start !== end) { // only wrap if text is selected
+        var selectedText = input.val().substring(start, end);
+        var newText = '<i>' + selectedText + '</i>';
+        input.val(input.val().substring(0, start) + newText + input.val().substring(end));
+      }
+    });
+
+
+    $('#wrapButton3').click(function() {
+      var input = $('#message');
+      var start = input[0].selectionStart;
+      var end = input[0].selectionEnd;
+      if (start !== end) { // only wrap if text is selected
+        var selectedText = input.val().substring(start, end);
+        var newText = '<b>' + selectedText + '</b>';
+        input.val(input.val().substring(0, start) + newText + input.val().substring(end));
+      }
+    });
+
+
+    $('#wrapButton4').click(function() {
+      var input = $('#message');
+      var start = input[0].selectionStart;
+      var end = input[0].selectionEnd;
+      if (start !== end) { // only wrap if text is selected
+        var selectedText = input.val().substring(start, end);
+        var newText = '<u>' + selectedText + '</u>';
+        input.val(input.val().substring(0, start) + newText + input.val().substring(end));
+      }
+    });
+
+
+    $('#wrapButton5').click(function() {
+      var input = $('#message');
+      var start = input[0].selectionStart;
+      var end = input[0].selectionEnd;
+      if (start !== end) { // only wrap if text is selected
+        var selectedText = input.val().substring(start, end);
+        var newText = '<span style="color: #28a7e9">' + selectedText + '</span>';
+        input.val(input.val().substring(0, start) + newText + input.val().substring(end));
+      }
+    });
+
+
+
+
+
+  });
+        </script>
+
+
+    
+
+
+<%- include('../partials/footer') -%>

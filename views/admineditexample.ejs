@@ -1,0 +1,124 @@
+<%- include('../partials/header') -%>
+<%
+  var a1, a, b, c, d,e,f,g, h, i, j,k,l,m,n;
+  try {
+    a1 = result[0].Id;
+    a = result[0].Title;
+    b = result[0].Icon;
+    c = result[0].Image;
+    d = result[0].ImageTitle;
+    e = result[0].Imageb;
+    f = result[0].ImageTitleb;
+    g = result[0].Imagec;
+    h = result[0].ImageTitlec;
+    i = result[0].Description;
+    j = result[0].Descriptionb;
+    k = result[0].Descriptionc;
+    l = result[0].onHome;
+    m = result[0].externalLink;
+    n = result[0].SmallBit;
+
+    
+  } catch (e) {
+    a = b = c = d = h = g = h = i = j = k = l = m = n = "Error (Check all Data)";
+   
+  }
+%>
+  <!-- Your EJS code here -->
+
+
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>EDIT </span>EXAMPLE</h2>
+            
+          </div>
+         
+          <form action="/admineditthisexample/<%= a1 %>" enctype="multipart/form-data" method="post">
+          
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+              <label>TITLE</label>
+              <input name="title" type="text" class="form-control" value="<%= a %>">
+                 
+              <label>ICON</label>
+              <input name="icon" type="text" class="form-control" value="<%= b %>">
+              
+              <label>IMAGE A</label>
+              <input name="image" type="text" class="form-control" value="<%= c %>">
+
+              <label>IMAGE A TITLE</label>
+              <input name="imagetitle" type="text" class="form-control" value="<%= d %>">
+
+              <label>IMAGE B</label>
+              <input name="imageb" type="text" class="form-control" value="<%= e %>">
+
+              <label>IMAGE B TITLE</label>
+              <input name="imagetitleb" type="text" class="form-control" value="<%= f %>">
+
+
+              <label>IMAGE C</label>
+              <input name="imagec" type="text" class="form-control" value="<%= g %>">
+
+              <label>IMAGE C TITLE</label>
+              <input name="imagetitlec" type="text" class="form-control" value="<%= h %>">
+
+              <label>External Link</label>
+              <input name="externallink" type="text" class="form-control" value="<%= h %>">
+
+
+              <label>SMALL TITLE</label>
+              <input name="smallbit" type="text" class="form-control" value="<%= n %>">
+
+              <label>ON HOME</label>
+              <select name="onhome" class="form-control">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+             
+
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            
+           
+            <% var desx = i 
+            var desxfixed = desx.replaceAll("<br>" , "\n");
+            %>
+            <label>CONTENT</label>
+            <textarea name="description" rows="18" class="form-control" ><%= desxfixed %></textarea>
+
+            <% var desy = j 
+            var desyfixed = desx.replaceAll("<br>" , "\n");
+            %>
+            <label>CONTENT</label>
+            <textarea name="descriptionb" rows="18" class="form-control" ><%= desyfixed %></textarea>
+
+            <% var desz = k 
+            var deszfixed = desx.replaceAll("<br>" , "\n");
+            %>
+            <label>CONTENT</label>
+            <textarea name="descriptionc" rows="18" class="form-control" ><%= deszfixed %></textarea>
+               
+                   
+            <input type="submit" class="form-control">
+          
+        </div>
+
+        </form>
+       
+       
+
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+
+<%- include('../partials/footer') -%>

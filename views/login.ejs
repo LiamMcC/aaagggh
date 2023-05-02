@@ -1,0 +1,86 @@
+<%- include('../partials/header') -%>
+
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>WELCOME </span>BACK</h2>
+            
+          </div>
+
+          <% if (message) { %>
+            <div class="col-md-12">
+            <h4><%= message %></h4>
+          </div>
+            <% } %>
+          
+          <div class="col-md-12 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+            <form action="#" method="post">
+              <label>NAME</label>
+              <input name="username" type="text" class="form-control" id="name">
+                 
+                          <label>PASSWORD</label>
+              <input name="password" type="password" class="form-control" id="email">
+                 
+                     
+              <%= flash.loginMessage %>
+                          <input type="submit" class="form-control">
+            </form>
+            <a href="/signup" >Need An Account?</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp or &nbsp&nbsp
+            <a href="#" id="forgot">Forgot Your Password?</a>
+          </div>
+
+          <div id="myModal" class="modal2" >
+          <div class="modal-content2" >
+    
+            <h4>Reset Forgotten Password Here</h4>
+            <form action="/xxxxxx" method="post">
+            <div class="col-md-12" style="margin-bottom:40px;">
+                <input name="username" type="text" class="form-control" placeholder="User Name">
+                      <br><br>
+                <input name="email" type="email" class="form-control" placeholder="Email Address">
+                <br><br>
+
+                 <button class="form-control" >Go</button>
+                    <br><br>
+                 <p class="form-control" id="noCancel">Cancel</p>
+          </div>
+            </form>
+    
+      </div>
+          </div>
+
+
+          <script>
+            $(document).ready(function(){
+
+        
+              $("#forgot").click(function(){
+              $("#myModal").slideDown(2000);
+              })
+          
+              $("#noCancel").click(function(){
+              $("#myModal").slideUp(2000);
+              })
+              
+            })
+          
+          
+
+          
+              </script>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+
+<%- include('../partials/footer') -%>
+<%- include('../partials/cookie') -%>

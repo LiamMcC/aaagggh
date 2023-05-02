@@ -1,0 +1,86 @@
+<%- include('../partials/header') -%>
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+			
+            
+			
+			<% result[0].forEach(function(product) { %>
+				<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>ORDER </span>NO: <%= product.Id %></h2>
+					
+					<p>Total Cost €<%= product.totalCost %></p>
+						<p>Date: <%= product.orderDate %></p>
+						<p>Ordered By: <%= product.User %></p>
+						
+						<p>Order Status: <%= product.Status %></p>
+			  
+					
+
+
+				</tr>
+				<% }); %>
+          </div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>ORDER </span>ITEMS</h2>
+		  <div class="col-md-12">
+		<div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
+				<% if (result[1].length === 0) { %>
+					<h1>It Looks Like This Order Contains No Products. Get In Touch If This Message Appears!</h1>
+				  <% } else { %>
+					
+	
+	
+				  
+	
+	
+	
+				<table>
+				  <tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Total</th>
+				  </tr>
+				  <% result[1].forEach(function(product) { %>
+				  <tr>
+					<td><a href="/solution/<%= product.productName %>/<%= product.productId %>" style="text-decoration: none;"><%= product.productName %></a></td>
+	
+					<td><p>€<%= product.productPrice %></p></td>
+	
+					<td><%= product.quantity %></td>
+	
+				
+					<% var linetotal =  product.quantity  * product.productPrice %>
+					<td>€<%= linetotal %></td>
+				  </tr>
+				  <% }); %>
+				 
+				</table>
+		
+		
+				
+				<% } %>
+				
+				
+			</div>
+		  </div>
+		</div>
+		
+</section>
+
+
+<%- include('../partials/contact') -%>
+<%- include('../partials/footer') -%>
+<%- include('../partials/cookie') -%>
+
+
+
+

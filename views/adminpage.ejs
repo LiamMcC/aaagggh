@@ -1,0 +1,88 @@
+<%- include('../partials/header') -%>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>ADMIN </span>ONLY</h2>
+            <h4>Remember To Log Out <%= user.userName %>!</h4>
+          </div>
+
+        </div>
+          <div class="row">
+          <div class="col-md-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
+            
+  
+            <table>
+              <tr>
+              <th>Section</th>
+              <th>Description</th>
+              <th>Go!</th>
+     
+              </tr>
+
+              <tr>
+                <td>Orders</td>
+                <td>Here you will find list of all past and pending orders</td>
+                <td><a href="/adminOrders"><button class="form-control">Go</button></a></td>
+              </tr>
+
+              <tr>
+                <td>Packages</td>
+                <td>Here you will find an area where you can add or edit a package</td>
+                <td><a href="/adminpackages"><button class="form-control">Go</button></a></td>
+              </tr>
+
+              <tr>
+                <td>Services</td>
+                <td>Here you will find an area where you can add or edit a service</td>
+                <td><a href="/adminservices"><button class="form-control">Go</button></a></td>
+              </tr>
+
+              <tr>
+                <td>Main Features</td>
+                <td>Here you will find an area where you can add or edit a Main Feature</td>
+                <td><a href="/adminfeatures"><button class="form-control">Go</button></a></td>
+              </tr>
+
+
+              <tr>
+                <td>About</td>
+                <td>Here you will find parts of the site you can edit such as messages on different pages</td>
+                <td><a href="/adminabout"><button class="form-control">Go</button></a></td>
+              </tr>
+
+              <tr>
+                <td>Blog</td>
+                <td>Here you will find an area where you can add or edit blogs</td>
+                <td><a href="/adminblog"><button class="form-control">Go</button></a></td>
+              </tr>
+
+              <tr>
+                <td>Examples</td>
+                <td>Here you will find an area where you can add or edit Examples</td>
+                <td><a href="/adminexample"><button class="form-control">Go</button></a></td>
+              </tr>
+
+              <tr>
+                <td>Upload</td>
+                <td>Here you can pick a new image to upload to the site</td>
+                <td><a href="/newimageupload"><button class="form-control">Go</button></a></td>
+              </tr>
+              <tr>
+                <td>Images</td>
+                <td>Here you will find a list of all images and names</td>
+                <td><a href="/allimages"><button class="form-control">Go</button></a></td>
+              </tr>
+            </table>
+
+
+        </div>
+    </div>
+    </div>
+</section>
+
+
+<%- include('../partials/footer') -%>
+

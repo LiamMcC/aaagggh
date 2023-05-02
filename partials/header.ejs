@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<!-- 
+        Awesome Template
+        http://www.templatemo.com/preview/templatemo_450_awesome
+        -->
+		<title>Aaagggh.com is a brand new way to get your idea online....</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+		<link rel="stylesheet" href="../../animate.min.css">
+		<link rel="stylesheet" href="../../bootstrap.min.css">
+		<link rel="stylesheet" href="../../font-awesome.min.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../templatemo-style.css">
+		<script src="../../jquery.js"></script>
+		<script src="../../bootstrap.min.js"></script>
+        <script src="../../jquery.singlePageNav.min.js"></script>
+		<script src="../../typed.js"></script>
+		<script src="../../wow.min.js"></script>
+		<script src="../../custom.js"></script>
+
+
+		<style>
+
+.shopping-cart {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+table th,
+table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+table th {
+  font-weight: bold;
+  
+}
+
+.product-image {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+
+.product-details {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+input[type="number"] {
+  width: 50px;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-appearance: none;
+}
+
+.checkout-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.cookie-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2b2b2b;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  z-index: 9999;
+  text-align: center;
+}
+
+
+
+.neon-link {
+  color: #00ffff;
+  text-decoration: none;
+  border-bottom: 2px solid #00ffff;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+
+.neon-link:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+
+.cookie-notice button {
+  background-color: #00d0ff;
+  border: 2px solid #00d0ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-left: 10px;
+}
+
+.cookie-notice button:hover {
+  background-color: #fff;
+  color: #00d0ff;
+}
+
+.cookie-notice a {
+  color: #00d0ff;
+}
+
+.cookie-notice a:hover {
+  color: #fff;
+}
+
+
+@media (max-width: 768px) {
+  .shopping-cart {
+    padding: 0.5rem;
+  }
+
+  .product-image {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .product-details {
+    text-align: center;
+  }
+
+  input[type="number"] {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .checkout-btn {
+    font-size: 1rem;
+  }
+}
+
+/* The Modal (background) */
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 150px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(255, 255, 255); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.6); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content2 {
+  background-color: #070707;
+  margin-top:300px;
+  margin: auto;
+  padding: 10px;
+  overflow: auto;
+  width: 90%;
+  min-height:300px;
+}
+
+/* The Close Button */
+.close2 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* End 2nd delete modal */
+
+/* Image Gallery on admin all images page */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.image {
+  width: 12%;
+  margin-bottom: 2%;
+}
+
+.image img {
+  width: 100%;
+}
+
+/* End Image Gallery on admin all images page */
+		</style>
+
+	</head>
+	<body id="top">
+
+		<!-- start preloader -->
+		<div class="preloader">
+			<div class="sk-spinner sk-spinner-wave">
+     	 		<div class="sk-rect1"></div>
+       			<div class="sk-rect2"></div>
+       			<div class="sk-rect3"></div>
+      	 		<div class="sk-rect4"></div>
+      			<div class="sk-rect5"></div>
+     		</div>
+    	</div>
+    	<!-- end preloader -->
+
+        <!-- start header -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+						<p><i class="fa fa-phone"></i><span> Phone</span><a href="#">00353864000567</a></p>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <p><i class="fa fa-envelope-o"></i><span> Email</span><a href="#">solutions@aagggh.com</a></p>
+                    </div>
+                    <div class="col-md-5 col-sm-4 col-xs-12">
+                        <ul class="social-icon">
+                            <li><span>Find us on</span></li>
+                            
+                            <li><a href="/" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-instagram"></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+
+    	<!-- start navigation -->
+		<nav class="navbar navbar-default templatemo-nav" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<a href="/" onclick="location.href = '/';" class="navbar-brand">AAAGGGH.COM</a>
+				</div>
+				<div class="collapse navbar-collapse">
+                
+					<ul class="nav navbar-nav navbar-right">		
+						
+						<li><a href="/about">WHAT WE DO</a></li>
+						<li><a href="/solutions">SOLUTIONS</a></li>
+						<li><a href="/examples">EXAMPLES</a></li>
+						<li><a href="/blog">BLOG</a></li>
+						<li><a href="/contact">CONTACT</a></li>
+
+
+            <% try { %>
+										
+						<% if (isAuthenticated) { %>
+
+							<li><a href="/profile">PROFILE</a></li>
+							<li><a href="/logout">LOG OUT</a></li>
+						   
+			
+						  <% if (user.adminRights == true) { %>
+							<li><a href="/administration">ADMIN</a></li>
+							
+						  
+			
+							<% } %>
+						  <%} else { %>
+							<li><a href="/login">LOG IN</a></li>
+							<li><a href="/signup">REGISTER</a></li>
+							
+					   
+						<% } %>
+
+
+            <% } catch (err) { %>
+              <li><a href="/contact">ERROR</a></li>
+            <% } %>
+
+
+						<li><a href="/cart"><i class="fa fa-shopping-cart"></i> (<%= grandItems %>)</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- end navigation -->

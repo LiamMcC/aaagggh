@@ -1,0 +1,17 @@
+<div>
+
+
+    
+    <% if (typeof cookies === 'undefined' || cookies.cookie_consent !== '1') { %>
+        <div class="cookie-notice">
+          <p>We use cookies to ensure you get the best experience on our website. By continuing to use our site, you consent to our use of cookies. 
+            <a href="/cookieinfo">Learn more</a>
+          </p>
+          <form action="/acceptCookie" method="post">
+            <button id="accept-cookies">Accept</button>
+          </form>
+        </div>
+      <% } %>
+
+   
+</div>
